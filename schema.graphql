@@ -1,6 +1,6 @@
 type Domain @entity {
   id: ID!                                               # The namehash of the name
-  name: String                                          # The human readable name, if known. Unknown portions replaced with hash in square brackets (eg, foo.[1234].eth)
+  name: String                                          # The human readable name, if known. Unknown portions replaced with hash in square brackets (eg, foo.[1234].lamb)
   labelName: String                                     # The human readable label name (imported from CSV), if known
   labelhash: Bytes                                      # keccak256(labelName)
   parent: Domain                                        # The namehash (id) of the parent name
@@ -64,17 +64,6 @@ type WrappedTransfer implements DomainEvent @entity {
   blockNumber: Int!
   transactionID: Bytes!
   owner: Account!
-}
-
-type NameWrapped implements DomainEvent @entity {
-  id: ID!
-  domain: Domain!
-  blockNumber: Int!
-  transactionID: Bytes!
-  name: String
-  fuses: Int!
-  owner: Account!
-  expiryDate: BigInt!
 }
 
 type NameUnwrapped implements DomainEvent @entity {
@@ -220,15 +209,6 @@ type PubkeyChanged implements ResolverEvent @entity {
   y: Bytes!
 }
 
-type TextChanged implements ResolverEvent @entity {
-  id: ID!
-  resolver: Resolver!
-  blockNumber: Int!
-  transactionID: Bytes!
-  key: String!
-  value: String
-}
-
 type ContenthashChanged implements ResolverEvent @entity {
   id: ID!
   resolver: Resolver!
@@ -246,15 +226,6 @@ type InterfaceChanged implements ResolverEvent @entity {
   implementer: Bytes!
 }
 
-type AuthorisationChanged implements ResolverEvent @entity {
-  id: ID!
-  resolver: Resolver!
-  blockNumber: Int!
-  transactionID: Bytes!
-  owner: Bytes!
-  target: Bytes!
-  isAuthorized: Boolean!
-}
 
 type VersionChanged implements ResolverEvent @entity {
   id: ID!

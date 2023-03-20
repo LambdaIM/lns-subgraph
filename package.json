@@ -1,22 +1,22 @@
 {
-  "name": "ens-subgraph",
+  "name": "lns-subgraph",
   "version": "1.0.2",
-  "repository": "https://github.com/ensdomains/ens-subgraph",
+  "repository": "https://github.com/LambdaIM/lns-subgraph",
   "license": "MIT",
   "scripts": {
     "codegen": "graph codegen --output-dir src/types/",
     "test": "graph test",
     "setup": "yarn codegen && yarn create-local && yarn deploy-local",
-    "create-local": "graph create graphprotocol/ens --node http://127.0.0.1:8020",
-    "deploy-local": "graph deploy graphprotocol/ens --debug --ipfs http://localhost:5001 --node http://127.0.0.1:8020/ --version-label 0.0.1",
-    "remove-local": "graph remove graphprotocol/ens --node http://127.0.0.1:8020",
-    "docker:setup": "yarn codegen && yarn docker:create-local && yarn docker:deploy-local",
-    "docker:create-local": "graph create graphprotocol/ens --node http://ens-app_graph-node_1:8020",
-    "docker:deploy-local": "graph deploy graphprotocol/ens --debug --ipfs http://ens-app_ipfs_1:5001 --node http://ens-app_graph-node_1:8020/ --version-label 0.0.1",
-    "docker:remove-local": "graph remove graphprotocol/ens --node http://ens-app_graph-node_1:8020",
+    "create-local": "graph create LambdaIM/lns --node http://testpg.lambda.im/graph-rpc",
+    "deploy-local": "graph deploy LambdaIM/lns --debug --ipfs http://testpg.lambda.im/upload/ --node http://testpg.lambda.im/graph-rpc --version-label 0.0.1",
+    "remove-local": "graph remove LambdaIM/lns --node http://testpg.lambda.im/graph-rpc",
+    "docker:setup": "yarn codegen && yarvn docker:create-local && yarn docker:deploy-local",
+    "docker:create-local": "graph create LambdaIM/lns --node http://testpg.lambda.im/graph-rpc",
+    "docker:deploy-local": "graph deploy LambdaIM/lns --debug --ipfs http://testpg.lambda.im/upload/ --node http://testpg.lambda.im/graph-rpc/ --version-label 0.0.1",
+    "docker:remove-local": "graph remove LambdaIM/lns --node http://testpg.lambda.im/graph-rpc",
     "build": "graph build",
-    "deploy": "graph deploy ensdomains/ens --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
-    "watch-local": "graph deploy graphprotocol/ens --watch --debug --node http://127.0.0.1:8020/ --ipfs http://localhost:5001"
+    "deploy": "graph deploy LambdaIM/lns --ipfs http://testpg.lambda.im/upload/ --node http://testpg.lambda.im/graph-rpc",
+    "watch-local": "graph deploy graphprotocol/ens --watch --debug --node http://testpg.lambda.im/graph-rpc --ipfs http://testpg.lambda.im/upload/"
   },
   "devDependencies": {
     "@ensdomains/content-hash": "^2.5.3",

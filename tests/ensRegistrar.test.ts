@@ -5,14 +5,14 @@ import {
   newMockEvent,
   test,
 } from "matchstick-as/assembly/index";
-import { handleNewOwner } from "../src/ensRegistry";
+import { handleNewOwner } from "../src/lnsRegistry";
 import {
   handleNameRegistered,
   handleNameRegisteredByController,
-} from "../src/ethRegistrar";
+} from "../src/lambRegistrar";
 import { NameRegistered } from "../src/types/BaseRegistrar/BaseRegistrar";
-import { NewOwner } from "../src/types/ENSRegistry/EnsRegistry";
-import { NameRegistered as NameRegisteredByController } from "../src/types/EthRegistrarController/EthRegistrarController";
+import { NewOwner } from "../src/types/LNSRegistry/LnsRegistry";
+import { NameRegistered as NameRegisteredByController } from "../src/types/LambRegistrarController/LambRegistrarController";
 import { Registration } from "../src/types/schema";
 
 const ETH_NAMEHASH =
@@ -34,7 +34,7 @@ const createNameRegisteredByControllerEvent = (
     mockEvent.logType,
     mockEvent.block,
     mockEvent.transaction,
-    mockEvent.parameters,
+    [],
     mockEvent.receipt
   );
 
@@ -86,7 +86,7 @@ const createNewOwnerEvent = (
     mockEvent.logType,
     mockEvent.block,
     mockEvent.transaction,
-    mockEvent.parameters,
+    [],
     mockEvent.receipt
   );
 
@@ -122,7 +122,7 @@ const createNameRegisteredEvent = (
     mockEvent.logType,
     mockEvent.block,
     mockEvent.transaction,
-    mockEvent.parameters,
+    [],
     mockEvent.receipt
   );
   newNameRegisteredEvent.parameters = new Array();
