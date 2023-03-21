@@ -114,8 +114,7 @@ function _handleNewOwner(event: NewOwnerEvent, isMigrated: boolean): void {
       "0x0000000000000000000000000000000000000000000000000000000000000000"
     ) {
       domain.name = label;
-    } else {
-      parent = parent!;
+    } else if (parent !== null){
       let name = parent.name;
       if (label && name) {
         domain.name = label + "." + name;
@@ -167,7 +166,10 @@ export function handleNewResolver(event: NewResolverEvent): void {
     .concat(event.params.node.toHexString());
 
   let node = event.params.node.toHexString();
-  let domain = getDomain(node)!;
+  let domain = getDomain(node);
+  if (domain == null) {
+    return
+  }
   domain.resolver = id;
 
   let resolver = Resolver.load(id);
