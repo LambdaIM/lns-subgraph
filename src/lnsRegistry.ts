@@ -92,6 +92,7 @@ function _handleNewOwner(event: NewOwnerEvent, isMigrated: boolean): void {
     domain = new Domain(subnode);
     domain.createdAt = event.block.timestamp;
     domain.subdomainCount = 0;
+    domain.name = "[" + event.params.label.toHexString() + "].lamb";
   }
 
   if (domain.parent === null && parent !== null) {
