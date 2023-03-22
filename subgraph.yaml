@@ -10,9 +10,9 @@ dataSources:
     name: LNSRegistry
     network: testnet
     source:
-      address: "0xdC96F1ad45C316e5845ca2568688A75C36211399"
+      address: "0x5ba36075bFaEfA1EF536290868B35499F7e58778"
       abi: LnsRegistry
-      startBlock: 6119455
+      startBlock: 6411513
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -38,9 +38,9 @@ dataSources:
     name: Resolver
     network: testnet
     source:
-      address: "0x6057520a85bfE38ac9401267D5D75fDED440D43a"
+      address: "0x854941ecAB58592ACBB95701D0e6AC13E26ecF60"
       abi: Resolver
-      startBlock: 6119484
+      startBlock: 6411545
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -80,9 +80,9 @@ dataSources:
     name: BaseRegistrar
     network: testnet
     source:
-      address: "0x3e0dD5D9d219aC170655beF0E9eEA21c9b667B51"
+      address: "0x3230F6C53eD41597d2A7F9E25537E03bAB0b3209"
       abi: BaseRegistrar
-      startBlock: 6119455
+      startBlock: 6411522
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -107,9 +107,9 @@ dataSources:
     name: LambRegistrarController
     network: testnet
     source:
-      address: "0x85A663f5Dfb73Cd795F928c6B68323b76C2A5f70"
+      address: "0x49191AfC1d65AeA7a06b65EA527a73E9c0e38Afd"
       abi: LambRegistrarController
-      startBlock: 6119473
+      startBlock: 6411535
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
